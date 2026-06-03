@@ -23,5 +23,5 @@ class JSONStorage:
             for stocks in data:
                 stocks_obj = stockPos.from_dict(stocks)
                 portfolio.addStock(stocks_obj)
-                return portfolio
+            return portfolio
                 

@@ -66,11 +66,28 @@ class PortfolioAnalytics:
     @staticmethod
     def portfolio_summary(portfolio):
         PortfolioAnalytics._validate_portfolio(portfolio)
+
+        best_stock = PortfolioAnalytics.best_performing_stock(portfolio)
+        worst_stock = PortfolioAnalytics.worst_performing_stock(portfolio)
+
         summary = {
-            "total_value": PortfolioAnalytics.calculateTotalValue(portfolio),
             "total_cost": PortfolioAnalytics.calculateTotalCost(portfolio),
+            "total_value": PortfolioAnalytics.calculateTotalValue(portfolio),
             "total_pnl": PortfolioAnalytics.calculatePNL(portfolio),
-            "best_stock": PortfolioAnalytics.best_performing_stock(portfolio),
-            "worst_stock": PortfolioAnalytics.worst_performing_stock(portfolio)
+            "best_stock": None,
+            "worst_stock": None
         }
+
+        if best_stock is not None:
+            summary["best_stock"] = {
+                "ticker": best_stock.ticker,
+                "pnl": best_stock.pnl()
+            }
+
+        if worst_stock is not None:
+            summary["worst_stock"] = {
+                "ticker": worst_stock.ticker,
+                "pnl": worst_stock.pnl()
+            }
+
         return summary
