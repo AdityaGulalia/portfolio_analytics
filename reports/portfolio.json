@@ -1,0 +1,14 @@
+[
+  {
+    "ticker": "AAPL",
+    "shares": 10,
+    "boughtPrice": 100.0,
+    "currPrice": 170.0
+  },
+  {
+    "ticker": "NVDA",
+    "shares": 5,
+    "boughtPrice": 200.0,
+    "currPrice": 2800.0
+  }
+]
