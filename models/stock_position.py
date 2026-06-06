@@ -1,6 +1,13 @@
 class stockPos:
     def __init__(self, ticker, shares, boughtPrice , currPrice):
-        
+        if not isinstance(ticker, str):
+            raise TypeError("Ticker must be a string.")
+        if not isinstance(shares, int):
+            raise TypeError("Shares must be an integer.")
+        if not isinstance(boughtPrice, float):
+            raise TypeError("Bought price must be a float.")    
+        if not isinstance(currPrice, float):
+            raise TypeError("Current price must be a float.")
         if (shares <= 0 or boughtPrice < 0 or currPrice < 0):
             raise ValueError("Shares, bought price and current price must be non-negative.")
         if (ticker == ""):
